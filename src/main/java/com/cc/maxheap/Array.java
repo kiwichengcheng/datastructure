@@ -15,6 +15,14 @@ public class Array<E> {
         this(10);
     }
 
+    public Array(E[] arr){
+        data = (E[])new Object[arr.length];
+        for (int i = 0 ; i < arr.length ; i++){
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+
     public int getCapacity(){
         return data.length;
     }
@@ -125,6 +133,22 @@ public class Array<E> {
         return data[index];
     }
 
+    public void swap(int i, int j){
+        if (i < 0 || i >=size || j< 0 || j>=size) {
+            throw new IllegalArgumentException("Index is illegal");
+        }
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+
+    public void set(int index, E e){
+        if(index >= size){
+            throw new IllegalArgumentException("index is illegal");
+        }
+        data[index] = e;
+    }
+
     @Override
     public String toString(){
 
@@ -139,4 +163,6 @@ public class Array<E> {
         res.append(']');
         return res.toString();
     }
+
+
 }

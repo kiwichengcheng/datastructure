@@ -107,6 +107,10 @@ public class BST<E extends Comparable<E>> {
 
     private Node floor(Node node, E e){
 
+        if(node == null){
+            return null;
+        }
+
         if(e.compareTo(node.e) == 0){
             return node;
         }else if(e.compareTo(node.e)< 0){
@@ -115,16 +119,10 @@ public class BST<E extends Comparable<E>> {
             }
             return floor(node.left,e);
         }else {
-            if(node.right == null){
-                return node;
-            }else{
-                Node rightMin = minimum(node.right);
-                if(e.compareTo(rightMin.e) < 0){
-                    return  node;
-                }else{
-                    return floor(node.right,e);
-                }
-            }
+            Node t = floor(node.right,e);
+            if(t != null)
+                return t;
+            return node;
         }
     }
 
@@ -269,6 +267,6 @@ public class BST<E extends Comparable<E>> {
         System.out.println(bst.maximum());
 
 
-        System.out.println(bst.floor(2));
+        System.out.println(bst.floor(9));
     }
 }
