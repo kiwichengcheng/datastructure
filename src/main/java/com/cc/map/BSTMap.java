@@ -1,5 +1,6 @@
 package com.cc.map;
 
+import com.cc.FileOperation;
 import com.cc.tree.BST;
 
 import java.util.ArrayList;
@@ -77,8 +78,8 @@ public class BSTMap<K extends Comparable, V> implements Map<K,V> {
             }
 
             Node successor = minimum(node.right);
-            successor.left = node.left;
             successor.right = removeMin(node.right);
+            successor.left = node.left;
             node.left = node.right = null;
             return successor;
         }

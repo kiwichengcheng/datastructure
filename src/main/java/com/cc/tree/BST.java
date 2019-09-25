@@ -247,8 +247,8 @@ public class BST<E extends Comparable<E>> {
             }
 
             Node successor = minimum(node.right);
-            successor.left = node.left;
             successor.right = removeMin(node.right);
+            successor.left = node.left;
             node.left = node.right = null;
             return successor;
         }

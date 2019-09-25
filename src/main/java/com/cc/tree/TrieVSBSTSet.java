@@ -1,7 +1,7 @@
 package com.cc.tree;
 
+import com.cc.FileOperation;
 import com.cc.set.BSTSet;
-import com.cc.set.FileOperation;
 
 import java.util.ArrayList;
 
